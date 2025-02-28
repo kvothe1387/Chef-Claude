@@ -4,21 +4,15 @@ export default function Main() {
 
   const [ingredients, setIngredients] = React.useState([])
 
-  const ingredientsListItems = ingredients.map(ingredient => (
-    <li key={ingredient}>{ingredient}</li>
-  ))
-
-  function handleSubmit(event) {
-
-    event.preventDefault()
-    const formData = new FormData(event.currentTarget)
+  function handleFormAction(formData) {
     const newIngredient = formData.get("ingredient")
     setIngredients(prevIngredients => [...prevIngredients, newIngredient])
   }
 
+
   return (
     <main>
-      <form onSubmit={handleSubmit} className="add-ingredient-form">
+      <form onSubmit={handleFormAction} className="add-ingredient-form">
         <input
           type="text"
           placeholder="e.g. oregano"
@@ -28,7 +22,9 @@ export default function Main() {
         <button>Add ingredient</button>
       </form>
       <ul>
-        {ingredientsListItems}
+        {ingredients.map(ingredient => (
+          <li key={ingredient}>{ingredient}</li>
+        ))}
       </ul>
     </main>
   )
