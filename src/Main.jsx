@@ -30,18 +30,10 @@ export default function Main() {
         <button>Add ingredient</button>
       </form>
 
-      {ingredients.length > 0 && (
-        <>
-          <IngredientsList ingredients={ingredients} />
-          {ingredients.length > 3 && <div className="get-recipe-container">
-            <div>
-              <h3>Ready for a recipe?</h3>
-              <p>Generate a recipe from your list of ingredients.</p>
-            </div>
-            <button onClick={toggleRecipeShown}>Get a recipe</button>
-          </div>}
-        </>
-      )}
+      {ingredients.length > 0 &&
+        <IngredientsList ingredients={ingredients} toggleRecipeShown={toggleRecipeShown} />
+      }
+
       {recipeShown && <ClaudeRecipe />}
     </main>
   )
