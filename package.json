@@ -10,8 +10,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "anthropic": "^0.0.0",
+    "anthropic-ai": "^0.0.10",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-markdown": "^10.0.1"
   },
   "devDependencies": {
     "@eslint/js": "^9.21.0",
